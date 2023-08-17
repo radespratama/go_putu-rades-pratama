@@ -71,3 +71,127 @@ const (
 ```
 
 ## Operator Expression
+
+Di golang terdapat operator-operator yang digunakan untuk melakukan operasi pada satu nilai atau lebih. Contohnya itu ada:
+
+### Operator Aritmatika:
+
+Digunakan untuk melakukan operasi matematika pada angka
+
+- `+` : Penambahan
+- `-` : Pengurangan
+- `*` : Perkalian
+- `/` : Pembagian
+- `%` : Modulus
+
+### Operator Perbandingan:
+
+Digunakan untuk membandingkan dua nilai
+
+- `==` : Sama dengan
+- `!=` : Tidak sama dengan
+- `<` : Kurang dari
+- `>` : Lebih dari
+- `<=` : Kurang dari atau sama dengan
+- `>=` : Lebih dari atau sama dengan
+
+### Operator Logika:
+
+Digunakan untuk mengkondisikan nilai
+
+- `&&` : Logika AND
+- `||` : Logika OR
+- `!` : Logika NOT
+
+### Operator BITWISE:
+
+- `&` : Bitwise AND
+- `|` : Bitwise OR
+- `^` : Bitwise XOR
+- `<<` : Left shift
+- `>>` : Right shift
+
+## Branching
+
+Merujuk pada kemampuan untuk mengatur aliran eksekusi program berdasarkan kondisi tertentu. Umumnya dicapai menggunakan pernyataan if, else if, switch, dan else.
+Berikut contoh implementasiannya:
+
+`IF`
+
+```go
+if kondisi {
+  // kodenya
+}
+```
+
+`IF - ELSE`
+
+```go
+if kondisi {
+  // kodenya
+} else {
+  // kodenya
+}
+```
+
+`IF - ELSE IF - ELSE`
+
+```go
+if kondisi {
+  // kodenya
+} else if kondisi-kedua {
+  // kodenya
+} else {
+  // kodenya
+}
+```
+
+`SWITCH`
+
+```go
+switch nilai {
+case nilai_pertama:
+  // kode
+case nilai_kedua:
+  // kode
+default:
+  // kode
+}
+```
+
+## Looping
+
+Looping digunakan untuk menjalankan sekelompok kode secara berulang selama suatu kondisi terpenuhi. Golang menyediakan dua jenis pernyataan looping, yaitu `for` dan `range`. Berikut penggunaan nya:
+
+FOR digunakan untuk menjalankan blok kode secara berulang selama kondisi tertentu terpenuhi.
+
+```go
+for inisialisasi; kondisi; iterasi {
+    // Blok kode yang akan dijalankan selama kondisi terpenuhi
+}
+
+// Contoh
+for i := 0; i < 10; i++ {
+    fmt.Println(i)
+}
+```
+
+RANGE digunakan untuk mengulang melalui elemen-elemen dalam tipe data seperti array, slice, map, atau channel.
+
+```go
+for inisialisasi; kondisi; iterasi {
+  // Blok kode yang akan dijalankan selama kondisi terpenuhi
+}
+
+// Contoh penggunaan array/slice
+angka := []int{1, 2, 3, 4, 5}
+for indeks, nilai := range angka {
+  fmt.Println("Indeks:", indeks, "Nilai:", nilai)
+}
+
+// Contoh penggunaan map
+data := map[string]int{"a": 1, "b": 2, "c": 3}
+for kunci, nilai := range data {
+  fmt.Println("Kunci:", kunci, "Nilai:", nilai)
+}
+```

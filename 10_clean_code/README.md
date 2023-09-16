@@ -3,7 +3,7 @@
 ```
 # STUDI INDEPENDEN ALTERRA ACADEMY #
 
-10 September 2023
+4 September 2023
 ```
 
 ## Clean Code

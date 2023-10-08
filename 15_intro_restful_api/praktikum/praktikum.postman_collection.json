@@ -1,0 +1,100 @@
+{
+  "info": {
+    "_postman_id": "e6613084-5ecd-4bac-927d-de22bca2c574",
+    "name": "15_IntroRESTfullAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "29762839"
+  },
+  "item": [
+    {
+      "name": "Skenario-1_No-1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/posts"
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-1_No-2",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://jsonplaceholder.typicode.com/posts/4"
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-1_No-3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Aselole\",\r\n    \"body\": \"Hiu hiu hiu\",\r\n    \"userId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://jsonplaceholder.typicode.com/posts"
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-1_No-4",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/posts/4"
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-2_No-1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/client/2"
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-2_No-2",
+      "request": {
+        "method": "PUT",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-2_No-3",
+      "request": {
+        "method": "DELETE",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Skenario-2_No-4",
+      "request": {
+        "method": "POST",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

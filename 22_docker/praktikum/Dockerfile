@@ -1,13 +1,14 @@
-FROM golang:alpine
-
-RUN apk update && apk add --no-cache git
+FROM golang:1.21.1
 
 WORKDIR /app
 
+COPY go.mod ./
+COPY go.sum ./
+
 COPY . .
 
-RUN go mod tidy
+RUN go build -o /dist
 
-RUN go build -o binary
+EXPOSE 9000
 
-ENTRYPOINT [ "/app/binary" ]
+CMD ["/dist"]

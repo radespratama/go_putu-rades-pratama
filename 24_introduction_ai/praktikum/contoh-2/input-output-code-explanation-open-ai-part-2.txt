@@ -1,0 +1,25 @@
+Question:
+
+Answer:
+- Jika suatu bilangan adalah kelipatan 3, outputnya adalah "Fizz".
+- Jika suatu bilangan adalah kelipatan 5, outputnya adalah "Buzz".
+- Jika suatu bilangan adalah kelipatan keduanya (3 dan 5), outputnya adalah "FizzBuzz".
+- Jika suatu bilangan bukan kelipatan dari keduanya, outputnya adalah bilangan itu sendiri.
+
+Berikut adalah penjelasan baris per baris dari kode tersebut:
+
+package main: Menunjukkan bahwa ini adalah program utama yang akan dijalankan.
+
+import ("fmt" "strconv"): Mengimpor dua paket yaitu "fmt" untuk melakukan output dan formatting, serta "strconv" untuk konversi tipe data.
+
+func main(): Mendefinisikan fungsi utama dari program.
+
+for defaultNumber := 0; defaultNumber <= 100; defaultNumber++: Sebuah loop for yang berjalan dari 0 hingga 100 (inklusif). defaultNumber adalah variabel yang digunakan untuk menyimpan nilai iterasi.
+
+if defaultNumber > 2 && defaultNumber%3 == 0: Jika defaultNumber lebih besar dari 2 dan habis dibagi 3 (kelipatan 3), maka cetak "Fizz".
+
+if defaultNumber > 2 && defaultNumber%5 == 0: Jika defaultNumber lebih besar dari 2 dan habis dibagi 5 (kelipatan 5), maka cetak "Buzz".
+
+if defaultNumber%3 != 0 && defaultNumber%5 != 0: Jika defaultNumber tidak habis dibagi 3 dan tidak habis dibagi 5, maka cetak nilai defaultNumber.
+
+Kode ini mencetak output dari 0 hingga 100 sesuai dengan aturan FizzBuzz. Perlu dicatat bahwa aturan "FizzBuzz" itu sendiri belum diimplementasikan dalam kode ini. Jika ingin mengimplementasikan aturan "FizzBuzz" secara penuh, perlu ditambahkan kondisi untuk menangani kelipatan 3 dan 5 secara bersamaan.

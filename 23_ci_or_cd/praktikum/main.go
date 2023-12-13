@@ -2,41 +2,42 @@ package main
 
 import (
 	"fmt"
-	"gofrendi/structureExample/appConfig"
-	"gofrendi/structureExample/appController"
-	"gofrendi/structureExample/appMiddleware"
-	"gofrendi/structureExample/appModel"
+	"test/configs"
+	"test/features/users/data"
+	"test/features/users/handler"
+	"test/features/users/service"
+	"test/helper"
+	"test/routes"
+	"test/utils/database"
 
 	"github.com/labstack/echo/v4"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
-	cfg, err := appConfig.NewConfig()
-	if err != nil {
-		panic(err)
-	}
-
-	// personModel can be either personMemModel or personDbModel, depends on the configuration
-	var personModel appModel.PersonModel
-	switch cfg.Storage {
-	case "db":
-		db, err := gorm.Open(mysql.Open(cfg.ConnectionString), &gorm.Config{})
-		if err != nil {
-			panic(err)
-		}
-		personModel = appModel.NewPersonDbModel(db)
-	case "mem":
-		personModel = appModel.NewPersonMemModel()
-	}
-
-	// create new echo instant
 	e := echo.New()
-	appMiddleware.AddGlobalMiddlewares(e)
-	appController.HandleRoutes(e, cfg.JwtSecret, personModel)
+	var config = configs.InitConfig()
 
-	if err = e.Start(fmt.Sprintf(":%d", cfg.HttpPort)); err != nil {
-		panic(err)
-	}
+	db := database.InitDB(*config)
+	database.Migrate(db)
+
+	userModel := data.New(db)
+	generator := helper.NewGenerator()
+	jwtInterface := helper.New(config.Secret, config.RefreshSecret)
+	userServices := service.New(userModel, generator, jwtInterface)
+
+	userControll := handler.NewHandler(userServices)
+
+
+	e.Pre(middleware.RemoveTrailingSlash())
+
+	e.Use(middleware.CORS())
+	e.Use(middleware.LoggerWithConfig(
+		middleware.LoggerConfig{
+			Format: "method=${method}, uri=${uri}, status=${status}, time=${time_rfc3339}\n",
+		}))
+
+	routes.RouteUser(e, userControll, *config)
+
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%d", config.ServerPort)).Error())
 }
